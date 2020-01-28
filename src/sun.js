@@ -182,6 +182,10 @@ function getJD(date) {
   var month = date.getMonth() + 1;
   var day = date.getDate();
 
+  if (month <= 2) {
+      year -= 1;
+      month += 12;
+  }
   var A = Math.floor(year / 100);
   var B = 2 - A + Math.floor(A / 4);
   var JD = Math.floor(365.25 * (year + 4716)) + Math.floor(30.6001 * (month + 1)) + day + B - 1524.5;
